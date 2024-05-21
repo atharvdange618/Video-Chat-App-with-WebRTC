@@ -1,0 +1,29 @@
+{
+  "name": "video-chat-app-with-webrtc",
+  "version": "1.0.0",
+  "description": "Video chat app made using WebRTC api",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/atharvdange618/Video-Chat-App-with-WebRTC.git"
+  },
+  "author": "Atharv Dange",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/atharvdange618/Video-Chat-App-with-WebRTC/issues"
+  },
+  "homepage": "https://github.com/atharvdange618/Video-Chat-App-with-WebRTC#readme",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "socket.io": "^4.7.5",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
