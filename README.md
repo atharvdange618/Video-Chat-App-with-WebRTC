@@ -1,53 +1,84 @@
 # Video Chat Application
 
-This is a simple video chat application built using Node.js, Express, PeerJS, and Socket.io. The application allows multiple users to join a room and have a video chat.
+This is a simple video chat application built using Node.js, Express, PeerJS, and Socket.io. The application allows multiple users to join a room and have real-time video and audio communication.
 
-## Features
+## ✨ Features
 
-- Unique room creation
-- Real-time video and audio communication
-- Automatically displays videos of all users in the room
+- Unique room generation using UUID
+- Real-time video and audio chat between multiple users
+- Dynamic peer-to-peer connections with automatic user stream updates
 
-## Prerequisites
+## 🚀 Prerequisites
 
-Make sure you have Node.js and npm installed. You can download Node.js from [here](https://nodejs.org/).
+Ensure the following are installed on your system:
 
-## Installation
+- [Node.js](https://nodejs.org/)
+- [npm](https://www.npmjs.com/)
+- [PeerJS server](https://peerjs.com/docs/#peerjs-server)
+
+Install the PeerJS CLI globally:
+
+```bash
+npm install -g peer
+```
+
+## 📦 Installation
 
 1. Clone the repository:
-    ```bash
-    git clone https://github.com/atharvdange618/Video-Chat-App-with-WebRTC.git
 
-    cd Video-Chat-App-with-WebRTC
-    ```
+   ```bash
+   git clone https://github.com/atharvdange618/Video-Chat-App-with-WebRTC.git
+   cd Video-Chat-App-with-WebRTC
+   ```
 
 2. Install the dependencies:
-    ```bash
-    npm install
-    ```
 
-3. Start the server:
-    ```bash
-    npm start
-    ```
+   ```bash
+   npm install
+   ```
 
-4. Open your browser and navigate to `http://localhost:3000`. You will be redirected to a unique room URL.
+3. Start the PeerJS signaling server **in a separate terminal**:
 
-## Project Structure
+   ```bash
+   peerjs --port 3001
+   ```
 
-- `server.js`: The main server file which sets up the Express server, handles routing, and manages WebSocket connections.
-- `views/room.ejs`: The EJS template for the room where the video chat takes place.
-- `public/script.js`: The client-side JavaScript which handles video streaming and peer-to-peer connections.
-- `public/style.css`: The client-side CSS for styling the video grid.
+4. Start the Node.js/Express server:
 
-## How It Works
+   ```bash
+   npm start
+   ```
 
-1. When a user accesses the root URL, they are redirected to a unique room URL generated using `uuid`.
-2. The server renders the `room.ejs` template for the room URL.
-3. The client-side script (`script.js`) sets up video streaming using WebRTC and PeerJS.
-4. Socket.io manages the signaling for peer connections and notifies users of new connections and disconnections.
+5. Open your browser and visit:
 
-## Dependencies
+   ```
+   http://localhost:3000
+   ```
+
+   You’ll be redirected to a unique room URL (e.g. `http://localhost:3000/abc123`). Share that URL with others to start a group video chat.
+
+## 🗂 Project Structure
+
+```
+
+├── public/
+│   └── script.js         # Client-side logic for media and peer connections
+├── views/
+│   └── room.ejs          # EJS template rendered for each room
+├── server.js             # Express server, routes, and Socket.io handling
+├── package.json
+└── README.md
+```
+
+## ⚙️ How It Works
+
+1. When a user hits `/`, they're redirected to a unique room via UUID.
+2. `room.ejs` is rendered with the room ID passed to the client.
+3. The client connects to the PeerJS signaling server (`localhost:3001`) to establish peer-to-peer connections.
+4. Socket.io coordinates user join/leave events and stream sharing.
+5. All active user video streams are dynamically rendered in the grid layout.
+
+## 📚 Dependencies
 
 - [Express](https://expressjs.com/)
 - [EJS](https://ejs.co/)
@@ -55,23 +86,17 @@ Make sure you have Node.js and npm installed. You can download Node.js from [her
 - [PeerJS](https://peerjs.com/)
 - [UUID](https://www.npmjs.com/package/uuid)
 
-## Contribution
+## 🤝 Contribution
 
-Your contributions and suggestions are welcome! Here's how you can contribute to this repository:
+Contributions are welcome! Feel free to:
 
-1. Fork the repository
-2. Create a new branch
-3. Make your changes
-4. Submit a pull request
+1. Fork the repo
+2. Create a feature or bugfix branch
+3. Commit and push your changes
+4. Submit a Pull Request
 
-## Contact
+## 📬 Contact
 
-If you have any questions or suggestions, please feel free to contact me:
-
-- Email: [atharvdange.dev@gmail.com](mailto:atharvdange.dev@gmail.com)
-- LinkedIn: [Atharv Dange](www.linkedin.com/in/atharvdange)
-- Twitter: [@atharvdangedev](https://twitter.com/atharvdangedev)
-
-## License
-
-This project is licensed under the ISC License.
+- 📧 Email: [atharvdange.dev@gmail.com](mailto:atharvdange.dev@gmail.com)
+- 🔗 LinkedIn: [Atharv Dange](https://www.linkedin.com/in/atharvdange)
+- 🐦 Twitter: [@atharvdangedev](https://twitter.com/atharvdangedev)
